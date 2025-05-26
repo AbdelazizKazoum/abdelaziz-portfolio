@@ -7,22 +7,26 @@ const Home = () => {
     img: null,
     title: "",
   });
+
   const onOpenModal = (img, title) => {
     setOpen(true);
     setModalValue({ img, title });
   };
+
   const onCloseModal = () => {
     setOpen(false);
     setModalValue({ img: null, title: "" });
   };
+
   return (
     <div className="kura_tm_section" id="home">
       <div className="kura_tm_hero">
         <div className="container">
           <div className="content">
             <div className="left">
-              <span className="name">Bernard Smith</span>
-              <h3 className="job">Creative Designer based in Japan</h3>
+              <span className="name">Abdelaziz Kazoum</span>
+              <h3 className="job">Full Stack js Developer</h3>
+
               <div className="services">
                 <ul>
                   <li>
@@ -30,13 +34,17 @@ const Home = () => {
                       href="#"
                       onClick={() =>
                         onOpenModal(
-                          "/img/service/1.jpg",
-                          "Creative Designer based in Japan"
+                          "/img/service/web.jpg",
+                          "Full Stack Development"
                         )
                       }
                     >
-                      <img className="image" src="/img/service/1.jpg" alt="" />
-                      <span>Web Development</span>
+                      <img
+                        className="image"
+                        src="/img/service/web.jpg"
+                        alt=""
+                      />
+                      <span>Full Stack Development</span>
                       <img
                         className="svg"
                         src="/img/svg/right-arrow.svg"
@@ -44,15 +52,23 @@ const Home = () => {
                       />
                     </a>
                   </li>
+
                   <li>
                     <a
                       href="#"
                       onClick={() =>
-                        onOpenModal("/img/service/2.jpg", "Digital Marketing")
+                        onOpenModal(
+                          "/img/service/seo.jpg",
+                          "SEO & Web Performance"
+                        )
                       }
                     >
-                      <img className="image" src="/img/service/2.jpg" alt="" />
-                      <span>Digital Marketing</span>
+                      <img
+                        className="image"
+                        src="/img/service/seo.jpg"
+                        alt=""
+                      />
+                      <span>SEO & Web Performance</span>
                       <img
                         className="svg"
                         src="/img/svg/right-arrow.svg"
@@ -60,15 +76,44 @@ const Home = () => {
                       />
                     </a>
                   </li>
+
                   <li>
                     <a
                       href="#"
                       onClick={() =>
-                        onOpenModal("/img/service/1.jpg", "Graphic Design")
+                        onOpenModal(
+                          "/img/service/devops.jpg",
+                          "Deployment & DevOps"
+                        )
                       }
                     >
-                      <img className="image" src="/img/service/3.jpg" alt="" />
-                      <span>Graphic Design</span>
+                      <img
+                        className="image"
+                        src="/img/service/devops.jpg"
+                        alt=""
+                      />
+                      <span>Deployment & DevOps</span>
+                      <img
+                        className="svg"
+                        src="/img/svg/right-arrow.svg"
+                        alt=""
+                      />
+                    </a>
+                  </li>
+
+                  <li>
+                    <a
+                      href="#"
+                      onClick={() =>
+                        onOpenModal("/img/service/design.jpg", "UI/UX Design")
+                      }
+                    >
+                      <img
+                        className="image"
+                        src="/img/service/design.jpg"
+                        alt=""
+                      />
+                      <span>UI/UX Design</span>
                       <img
                         className="svg"
                         src="/img/svg/right-arrow.svg"
@@ -78,11 +123,12 @@ const Home = () => {
                   </li>
                 </ul>
               </div>
+
               <div className="short_info">
                 <ul>
                   <li>
                     <div className="list_inner">
-                      <h3>10+</h3>
+                      <h3>4+</h3>
                       <span>
                         Years of
                         <br />
@@ -92,17 +138,18 @@ const Home = () => {
                   </li>
                   <li>
                     <div className="list_inner">
-                      <h3>3K+</h3>
+                      <h3>50+</h3>
                       <span>
-                        Happy
+                        Projects
                         <br />
-                        Customers
+                        Delivered
                       </span>
                     </div>
                   </li>
                 </ul>
               </div>
             </div>
+
             <div className="right">
               <div className="image">
                 <img src="/img/thumbs/3-4.jpg" alt="" />
@@ -113,6 +160,7 @@ const Home = () => {
                 <div className="shape"></div>
               </div>
             </div>
+
             <div className="down anchor">
               <a href="#portfolio">
                 <img className="svg" src="/img/svg/down-arrow.svg" alt="" />
@@ -121,9 +169,10 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       <HomeModal
         open={open}
-        onCloseModal={() => onCloseModal()}
+        onCloseModal={onCloseModal}
         img={modalValue.img}
         title={modalValue.title}
       />

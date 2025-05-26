@@ -22,7 +22,11 @@ const Header = ({ dark }) => {
             <div className="logo">
               <a href="#">
                 <img
-                  src={dark ? "/img/logo/logo.png" : "/img/logo/dark.png"}
+                  src={
+                    dark
+                      ? "/img/logo/kazoum_logo.png"
+                      : "/img/logo/kazoum_logo.png"
+                  }
                   alt=""
                 />
               </a>
