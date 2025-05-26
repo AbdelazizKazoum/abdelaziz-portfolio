@@ -24,8 +24,8 @@ const Header = ({ dark }) => {
                 <img
                   src={
                     dark
-                      ? "/img/logo/kazoum_logo.png"
-                      : "/img/logo/kazoum_logo.png"
+                      ? "/img/logo/kazoum_logo.jpg"
+                      : "/img/logo/kazoum_logo.jpg"
                   }
                   alt=""
                 />
