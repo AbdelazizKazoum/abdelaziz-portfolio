@@ -152,12 +152,7 @@ const Home = () => {
 
             <div className="right">
               <div className="image">
-                <img src="/img/thumbs/3-4.jpg" alt="" />
-                <div
-                  className="main"
-                  style={{ backgroundImage: "url(img/hero/1.jpg)" }}
-                ></div>
-                <div className="shape"></div>
+                <img src="/img/logo/logo.svg" alt="" />
               </div>
             </div>
 

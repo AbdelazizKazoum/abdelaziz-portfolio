@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { audioSoundAndOpen, openNav, scroll_, stickyNav } from "../utilits";
+import { FiCode } from "react-icons/fi";
 
 const Header = ({ dark }) => {
   const [isToggled, setToggled] = useState(false);
@@ -20,15 +21,9 @@ const Header = ({ dark }) => {
         <div className="wrapper">
           <div className="topbar_inner">
             <div className="logo">
-              <a href="#">
-                <img
-                  src={
-                    dark
-                      ? "/img/logo/kazoum_logo.jpg"
-                      : "/img/logo/kazoum_logo.jpg"
-                  }
-                  alt=""
-                />
+              <a href="#" className="custom-logo">
+                <FiCode className="logo-icon" />
+                <span className="logo-text">Kazoum</span>
               </a>
             </div>
             <div className="menu">
@@ -76,11 +71,9 @@ const Header = ({ dark }) => {
         <div className="mobile_menu_inner">
           <div className="mobile_in">
             <div className="logo">
-              <a href="#">
-                <img
-                  src={dark ? "/img/logo/logo.png" : "/img/logo/dark.png"}
-                  alt=""
-                />
+              <a href="#" className="custom-logo">
+                <FiCode className="logo-icon" />
+                <span className="logo-text">Kazoum</span>
               </a>
             </div>
             <div className="trigger" onClick={toggleTrueFalse}>

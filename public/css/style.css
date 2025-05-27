@@ -345,10 +345,33 @@ body.opened .kura_tm_topbar {
 .kura_tm_topbar.animate .topbar_inner {
   padding: 20px 37px 20px 50px;
 }
-.kura_tm_topbar .logo img {
+
+/* --------------- Logo ----------- */
+/* .kura_tm_topbar .logo img {
   max-width: 120px;
   max-height: 120px;
+} */
+
+.custom-logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
+
+.logo-icon {
+  font-size: 24px;
+  color: black;
+  margin-right: 6px;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+/* -------------------------- */
+
 .kura_tm_topbar .menu {
   display: flex;
   align-items: center;
@@ -770,7 +793,7 @@ body.opened .kura_tm_hero .content .left {
 .kura_tm_hero .content .right {
   width: 50%;
   text-align: right;
-  padding-left: 200px;
+  padding-left: 100px;
   position: relative;
   opacity: 0;
   visibility: hidden;
@@ -793,7 +816,7 @@ body.opened .kura_tm_hero .content .right {
 .kura_tm_hero .content .right .image img {
   min-width: 100%;
   position: relative;
-  opacity: 0;
+  /* opacity: 0; */
 }
 .kura_tm_hero .content .right .image .main {
   position: absolute;
@@ -814,29 +837,7 @@ body.opened .kura_tm_hero .content .right {
   -o-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
-body.opened .kura_tm_hero .content .right .image .main {
-  transform: rotate(7deg);
-}
-.kura_tm_hero .content .right .image .shape {
-  position: absolute;
-  top: 23px;
-  bottom: -23px;
-  left: -95px;
-  width: 90%;
-  background-color: #ff4522;
-  transform: rotate(0deg);
-  z-index: 1;
-  border-radius: 10px;
 
-  -webkit-transition: all 0.4s ease;
-  -moz-transition: all 0.4s ease;
-  -ms-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-}
-body.opened .kura_tm_hero .content .right .image .shape {
-  transform: rotate(-6deg);
-}
 .kura_tm_hero .down {
   position: absolute;
   left: 0px;
@@ -2402,6 +2403,7 @@ body.dark .kura_tm_settings .cursor li .svg,
   .kura_tm_hero .short_info ul li span {
     font-size: 13px;
   }
+
   .kura_tm_portfolio .portfolio_list .image .svg {
     width: 35px;
     height: 35px;
