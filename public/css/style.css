@@ -2397,6 +2397,11 @@ body.dark .kura_tm_settings .cursor li .svg,
   .kura_tm_hero .job {
     font-size: 30px;
   }
+
+  .kura_tm_hero .content {
+    min-height: 0px;
+  }
+
   .kura_tm_hero .short_info ul li h3 {
     font-size: 35px;
   }
