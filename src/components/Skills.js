@@ -7,7 +7,6 @@ const ParallaxVideo = dynamic(() => import("./Parallax"), { ssr: false });
 const skillsData = [
   { name: "React", percent: 90, icon: "devicon-react-original colored" },
   { name: "Next.js", percent: 85, icon: "devicon-nextjs-original colored" },
-  { name: "NextAuth.js", percent: 80, icon: "custom" },
   { name: "Vue.js", percent: 75, icon: "devicon-vuejs-plain colored" },
   { name: "NestJS", percent: 85, icon: "devicon-nestjs-plain colored" },
   { name: "Node.js", percent: 90, icon: "devicon-nodejs-plain colored" },
@@ -34,16 +33,18 @@ const Skills = () => {
       <div className="kura_tm_skills">
         <div className="container">
           <div className="skills_inner">
-            <div className="">
+            <div>
               <div className="kura_tm_main_title light">
                 <span>Skills</span>
-                <h3>Programming Skills</h3>
+                <h3>Tech Stack & Skills</h3>
               </div>
               <div className="text wow fadeInUp" data-wow-duration=".7s">
                 <p>
-                  For more than 20 years our experts have been accomplishing
-                  enough with modern Web Development, new generation web and app
-                  programming language.
+                  With over 4 years of experience in full-stack development,
+                  I've built and maintained robust web applications using modern
+                  technologies across the frontend and backend. I’m continuously
+                  learning and refining my skills to deliver high-quality,
+                  scalable solutions.
                 </p>
               </div>
 
@@ -51,42 +52,20 @@ const Skills = () => {
                 className="skills_grid wow fadeInUp"
                 data-wow-duration=".7s"
                 data-wow-delay=".2s"
-                style={{
-                  display: "grid",
-                  gap: "20px",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(150px, 1fr))",
-                  marginTop: "40px",
-                }}
               >
                 {skillsData.map((skill, i) => (
-                  <div
-                    key={i}
-                    className="skill_card"
-                    style={{
-                      backgroundColor: "rgba(255,255,255,0.05)",
-                      borderRadius: "10px",
-                      padding: "20px",
-                      textAlign: "center",
-                      color: "#fff",
-                      backdropFilter: "blur(4px)",
-                    }}
-                  >
+                  <div key={i} className="skill_card">
                     {skill.icon === "custom" ? (
                       <img
                         src="/img/icons/nextauth.svg"
                         alt={skill.name}
-                        style={{ width: "30px", margin: "0 auto 10px" }}
+                        className="skill_icon"
                       />
                     ) : (
-                      <i
-                        className={skill.icon}
-                        style={{ fontSize: "30px", marginBottom: "10px" }}
-                      ></i>
+                      <i className={`${skill.icon} skill_icon`}></i>
                     )}
-                    <h4 style={{ margin: "10px 0 5px" }}>{skill.name}</h4>
-                    <div style={{ fontSize: "14px", color: "#bbb" }}>
-                      {skill.percent}%
-                    </div>
+                    <h4 className="skill_title">{skill.name}</h4>
+                    <div className="skill_percent">{skill.percent}%</div>
                   </div>
                 ))}
               </div>
@@ -95,60 +74,104 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Embedded styles (scoped via styled-jsx) */}
       <style jsx>{`
         .kura_tm_skills {
           width: 100%;
-          height: auto;
-          position: relative;
           padding: 140px 0 150px;
+          position: relative;
           background: url("/img/patterns/white-texture.png") repeat;
           background-size: cover;
         }
+
         .kura_tm_skills::before {
           content: "";
           position: absolute;
           top: 0;
+          bottom: 0;
           left: 0;
           right: 0;
-          bottom: 0;
           background: url("/img/patterns/white-texture.png") repeat;
-          opacity: 0.6;
+          opacity: 0.4;
           z-index: 2;
         }
+
         .kura_tm_skills::after {
           content: "";
           position: absolute;
           top: 0;
+          bottom: 0;
           left: 0;
           right: 0;
-          bottom: 0;
           background-color: #000;
           z-index: 1;
         }
+
         .skills_inner {
           position: relative;
           z-index: 3;
         }
-        .left {
-          width: 60%;
-          padding-right: 200px;
-        }
+
         .kura_tm_main_title.light h3 {
-          color: #fff;
+          color: white;
         }
+
         .text p {
           color: #bbb;
         }
 
-        /* Add animation for progress if needed */
-        @keyframes wow {
-          0% {
-            width: 0%;
+        .skills_grid {
+          display: grid;
+          gap: 30px;
+          grid-template-columns: 1fr; /* mobile - one column */
+          margin-top: 40px;
+        }
+
+        @media (min-width: 640px) {
+          .skills_grid {
+            grid-template-columns: repeat(2, 1fr); /* tablets */
           }
-          100% {
-            width: 100%;
+        }
+
+        @media (min-width: 768px) {
+          .skills_grid {
+            grid-template-columns: repeat(3, 1fr); /* medium screens */
           }
+        }
+
+        @media (min-width: 1024px) {
+          .skills_grid {
+            grid-template-columns: repeat(4, 1fr); /* large screens */
+          }
+        }
+
+        .skill_card {
+          background-color: rgba(255, 255, 255, 0.05);
+          border-radius: 10px;
+          padding: 20px;
+          text-align: center;
+          color: #fff;
+          backdrop-filter: blur(4px);
+          transition: transform 0.3s ease;
+        }
+
+        .skill_card:hover {
+          transform: translateY(-5px);
+        }
+
+        .skill_icon {
+          font-size: 48px; /* larger icons */
+          margin-bottom: 10px;
+        }
+
+        .skill_title {
+          margin: 10px 0 5px;
+          color: white;
+        }
+
+        .skill_percent {
+          font-size: 14px;
+          color: #00ff80;
+          font-weight: bold;
         }
       `}</style>
     </div>
