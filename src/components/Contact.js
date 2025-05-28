@@ -13,9 +13,10 @@ const Contact = () => {
             <div className="left wow fadeInUp" data-wow-duration=".7s">
               <div className="text">
                 <p>
-                  Please fill out the form on this section to contact with me.
-                  Or call between 9:00 a.m. and 8:00 p.m. ET, Monday through
-                  Friday
+                  I’m always open to discussing new projects, collaborations, or
+                  opportunities. Feel free to reach out to me directly via
+                  phone, email, or through the contact form. I strive to respond
+                  promptly during business hours.
                 </p>
               </div>
               <div className="short">
@@ -60,7 +61,7 @@ const Contact = () => {
                         <g></g>
                         <g></g>
                       </svg>
-                      <span>44 Place, Tokyo, Japan</span>
+                      <span>Rabat, Salé, Sale El Jadida, Morocco</span>{" "}
                     </div>
                   </li>
                   <li>
@@ -100,7 +101,14 @@ const Contact = () => {
                         <g></g>
                         <g></g>
                       </svg>
-                      <span>+77 033 442 55 57</span>
+                      <span>
+                        <a
+                          href="tel:+212636739071"
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          +212 636 739 071
+                        </a>
+                      </span>{" "}
                     </div>
                   </li>
                   <li>
@@ -116,7 +124,14 @@ const Contact = () => {
                       >
                         <path d="m434.146 59.882h-389.234c-24.766 0-44.912 20.146-44.912 44.912v269.47c0 24.766 20.146 44.912 44.912 44.912h389.234c24.766 0 44.912-20.146 44.912-44.912v-269.47c0-24.766-20.146-44.912-44.912-44.912zm0 29.941c2.034 0 3.969.422 5.738 1.159l-200.355 173.649-200.356-173.649c1.769-.736 3.704-1.159 5.738-1.159zm0 299.411h-389.234c-8.26 0-14.971-6.71-14.971-14.971v-251.648l199.778 173.141c2.822 2.441 6.316 3.655 9.81 3.655s6.988-1.213 9.81-3.655l199.778-173.141v251.649c-.001 8.26-6.711 14.97-14.971 14.97z"></path>
                       </svg>
-                      <span>dodo@gmail.com</span>
+                      <span>
+                        <a
+                          href="mailto:abdelazizkazoum1@gmail.com"
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          abdelazizkazoum1@gmail.com
+                        </a>
+                      </span>{" "}
                     </div>
                   </li>
                   <li>
@@ -154,7 +169,16 @@ const Contact = () => {
                         <g></g>
                         <g></g>
                       </svg>
-                      <span>www.domain.com</span>
+                      <span>
+                        <a
+                          href="https://www.kazoum.me"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          style={{ color: "inherit", textDecoration: "none" }}
+                        >
+                          www.kazoum.me
+                        </a>
+                      </span>{" "}
                     </div>
                   </li>
                 </ul>

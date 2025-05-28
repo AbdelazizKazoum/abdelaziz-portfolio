@@ -112,6 +112,54 @@ const Price = () => {
         .kura_tm_pricing .right ul li .list_inner:hover svg.icon {
           color: #fff;
         }
+
+        /* Responsive styles */
+        @media (max-width: 991px) {
+          .kura_tm_pricing .pricing_inner {
+            flex-wrap: wrap;
+            gap: 40px;
+          }
+          .kura_tm_pricing .left,
+          .kura_tm_pricing .right {
+            width: 100%;
+            // padding: 0 20px;
+          }
+          .kura_tm_pricing .left {
+            padding-right: 0;
+          }
+          .kura_tm_pricing .right {
+            padding-left: 0;
+          }
+          .kura_tm_pricing .right ul {
+            margin-top: 30px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .kura_tm_pricing {
+            padding: 40px 10px 80px 10px;
+          }
+          .kura_tm_pricing .right ul li .list_inner {
+            padding: 20px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+          }
+          .kura_tm_pricing .right .cost {
+            min-width: auto;
+            padding-right: 0;
+            text-align: left;
+            margin-left: 0;
+            font-size: 16px;
+          }
+          .kura_tm_pricing .right .title {
+            padding-right: 0;
+          }
+          .kura_tm_pricing .right ul li svg.icon {
+            min-width: 28px;
+            min-height: 28px;
+          }
+        }
       `}</style>
 
       <div className="kura_tm_section" id="price">
@@ -157,7 +205,7 @@ const Price = () => {
                       <div className="list_inner">
                         <FaServer size={32} className="icon" />
                         <div className="title">
-                          <span>API Development (Node.js/Express)</span>
+                          <span>API Development (Node.js/Nestjs/Express)</span>
                         </div>
                         <div className="cost">
                           <span>$800</span>
