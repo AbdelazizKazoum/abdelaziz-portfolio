@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 import React, { useEffect } from "react";
 import { activeSkillProgress } from "../utilits";
 
-const ParallaxVideo = dynamic(import("./Parallax"), { ssr: false });
+const ParallaxVideo = dynamic(() => import("./Parallax"), { ssr: false });
 
 const skillsData = [
   { name: "React", percent: 90, icon: "devicon-react-original colored" },
@@ -47,7 +47,6 @@ const Skills = () => {
                 </p>
               </div>
 
-              {/* Responsive Grid */}
               <div
                 className="skills_grid wow fadeInUp"
                 data-wow-duration=".7s"
@@ -92,14 +91,66 @@ const Skills = () => {
                 ))}
               </div>
             </div>
-
-            {/* Right side image/video - optional */}
-            {/* <div className="right">
-              <ParallaxVideo />
-            </div> */}
           </div>
         </div>
       </div>
+
+      {/* Embedded styles (scoped via styled-jsx) */}
+      <style jsx>{`
+        .kura_tm_skills {
+          width: 100%;
+          height: auto;
+          position: relative;
+          padding: 140px 0 150px;
+          background: url("/img/patterns/white-texture.png") repeat;
+          background-size: cover;
+        }
+        .kura_tm_skills::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: url("/img/patterns/white-texture.png") repeat;
+          opacity: 0.6;
+          z-index: 2;
+        }
+        .kura_tm_skills::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #000;
+          z-index: 1;
+        }
+        .skills_inner {
+          position: relative;
+          z-index: 3;
+        }
+        .left {
+          width: 60%;
+          padding-right: 200px;
+        }
+        .kura_tm_main_title.light h3 {
+          color: #fff;
+        }
+        .text p {
+          color: #bbb;
+        }
+
+        /* Add animation for progress if needed */
+        @keyframes wow {
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
+        }
+      `}</style>
     </div>
   );
 };
