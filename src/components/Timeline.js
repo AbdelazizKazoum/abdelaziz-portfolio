@@ -7,19 +7,20 @@ const Timeline = () => {
         <div className="container">
           <div className="kura_tm_main_title">
             <span>Timeline</span>
-            <h3>Working Period</h3>
+            <h3>My Journey</h3>
           </div>
           <div className="timeline_list">
             <ul>
+              {/* Ongoing Experiences and Education */}
               <li className="wow fadeInUp" data-wow-duration=".7s">
                 <div className="list_inner">
-                  <span>April, 2019 - Today</span>
+                  <span>2021 - Present</span>
                 </div>
                 <div className="list_inner">
-                  <span>Head Designer &amp; Co-founder</span>
+                  <span>Software Engineer – Full Stack JS Developer</span>
                 </div>
                 <div className="list_inner">
-                  <span>Alan Klein Design, London</span>
+                  <span>Public Organization, Rabat</span>
                 </div>
               </li>
               <li
@@ -28,13 +29,13 @@ const Timeline = () => {
                 data-wow-delay=".2s"
               >
                 <div className="list_inner">
-                  <span>September, 2018 - April, 2019</span>
+                  <span>2021 - Present</span>
                 </div>
                 <div className="list_inner">
-                  <span>Creative Director &amp; Senior Designer</span>
+                  <span>Freelance Full Stack JavaScript Developer</span>
                 </div>
                 <div className="list_inner">
-                  <span>Raxuna Poc, New York</span>
+                  <span>Remote / Personal Projects</span>
                 </div>
               </li>
               <li
@@ -43,43 +44,67 @@ const Timeline = () => {
                 data-wow-delay=".4s"
               >
                 <div className="list_inner">
-                  <span>October, 2015 - September, 2018</span>
+                  <span>2025 - Present</span>
                 </div>
                 <div className="list_inner">
-                  <span>Head Designer</span>
+                  <span>
+                    Engineering Degree in Computer Systems Engineering
+                  </span>
                 </div>
                 <div className="list_inner">
-                  <span>Arimana Co. Ltd, Amsterdam</span>
+                  <span>SUPMTI, Morocco</span>
                 </div>
               </li>
+
+              {/* Past Education */}
               <li
                 className="wow fadeInUp"
                 data-wow-duration=".7s"
                 data-wow-delay=".6s"
               >
                 <div className="list_inner">
-                  <span>July, 2012 - October, 2015</span>
+                  <span>2021 - 2024</span>
                 </div>
                 <div className="list_inner">
-                  <span>Senior UX &amp; UI Designer</span>
+                  <span>Bachelor’s Degree in Computer Systems Engineering</span>
                 </div>
                 <div className="list_inner">
-                  <span>Baxdoro Design, London</span>
+                  <span>SUPMTI, Morocco</span>
                 </div>
               </li>
+
+              {/* Past Experience */}
+              <li
+                className="wow fadeInUp"
+                data-wow-duration=".7s"
+                data-wow-delay="1s"
+              >
+                <div className="list_inner">
+                  <span>2020 - 2021</span>
+                </div>
+                <div className="list_inner">
+                  <span>Database Administrator (Oracle & SQL Server)</span>
+                </div>
+                <div className="list_inner">
+                  <span>Public Organization, Rabat</span>
+                </div>
+              </li>
+
               <li
                 className="wow fadeInUp"
                 data-wow-duration=".7s"
                 data-wow-delay=".8s"
               >
                 <div className="list_inner">
-                  <span>March, 2010 - July, 2012</span>
+                  <span>2018 - 2020</span>
                 </div>
                 <div className="list_inner">
-                  <span>Junior UX Designer</span>
+                  <span>
+                    Diploma: Technicien Spécialisé en Développement Informatique
+                  </span>
                 </div>
                 <div className="list_inner">
-                  <span>Simono Design Group, London</span>
+                  <span>ISTA Mirleft</span>
                 </div>
               </li>
             </ul>
