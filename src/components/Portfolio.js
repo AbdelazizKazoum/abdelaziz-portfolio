@@ -16,10 +16,15 @@ const projects = [
     ],
   },
   {
-    title: "Bona Green",
+    title: "My Glass",
     description: "A sustainable farming analytics dashboard.",
     techStack: ["Vue", "Node.js", "MongoDB"],
-    images: ["/img/portfolio/recrutement/3.jpg", "/img/portfolio/4.jpg"],
+    images: [
+      "/img/portfolio/myglass/myglass_1.png",
+      "/img/portfolio/myglass/myglass_2.png",
+      "/img/portfolio/myglass/myglass_3.png",
+      "/img/portfolio/myglass/myglass_4.png",
+    ],
   },
   {
     title: "Leo Dandora",
@@ -172,7 +177,7 @@ const Portfolio = () => {
           position: relative;
           cursor: pointer;
           width: 100%;
-          aspect-ratio: 1907 / 958;
+          aspect-ratio: 1240 / 924;
           max-width: 100%;
           height: auto;
         }
@@ -327,7 +332,7 @@ const Portfolio = () => {
         /* MOBILE - enforce fixed aspect ratio for .image */
         @media (max-width: 768px) {
           .kura_tm_portfolio .portfolio_list .image {
-            aspect-ratio: 1907 / 958 !important;
+            aspect-ratio: 1240 / 924 !important;
             height: auto !important;
             min-height: unset !important;
             max-width: 100%;
