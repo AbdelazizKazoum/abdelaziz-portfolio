@@ -160,19 +160,29 @@ const Portfolio = () => {
         }
         .kura_tm_portfolio .portfolio_list .list_inner {
           width: 100%;
-          height: auto;
+          height: auto; /* Let height be automatic */
           clear: both;
           float: left;
+          border: 2px solid #ebebeb;
+          border-radius: 15px;
+          overflow: hidden;
+          padding: 5px;
         }
         .kura_tm_portfolio .portfolio_list .image {
           position: relative;
           cursor: pointer;
+          width: 100%;
+          aspect-ratio: 1907 / 958;
+          max-width: 100%;
+          height: auto;
         }
         .kura_tm_portfolio .portfolio_list .image img {
           position: relative;
           min-width: 100%;
           opacity: 0;
+          height: 100%;
         }
+        /* Updated main image container for fixed aspect ratio */
         .kura_tm_portfolio .portfolio_list .image .main {
           position: absolute;
           top: 0;
@@ -181,9 +191,10 @@ const Portfolio = () => {
           right: 0;
           background-repeat: no-repeat;
           background-position: center;
-          background-size: cover;
+          background-size: contain;
           border-radius: 10px;
-          height: 460px;
+          width: 100%;
+          height: 100%;
         }
         .kura_tm_portfolio .portfolio_list .overlay {
           position: absolute;
@@ -297,6 +308,30 @@ const Portfolio = () => {
         }
         .kura_tm_swiper_progress .my_navigation ul li .my_prev .svg {
           transform: rotate(180deg);
+        }
+
+        /* Make swiper-slide flex container to center content properly */
+        .swiper-slide {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: auto;
+        }
+
+        /* Ensure swiper container uses full width */
+        .kura_tm_portfolio .swiper-container {
+          width: 100%;
+          max-width: 100%;
+        }
+
+        /* MOBILE - enforce fixed aspect ratio for .image */
+        @media (max-width: 768px) {
+          .kura_tm_portfolio .portfolio_list .image {
+            aspect-ratio: 1907 / 958 !important;
+            height: auto !important;
+            min-height: unset !important;
+            max-width: 100%;
+          }
         }
       `}</style>
     </Fragment>
