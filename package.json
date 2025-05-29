@@ -20,7 +20,6 @@
     "react-responsive-modal": "^6.1.0",
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
-    "swiper": "^7.0.5",
     "wowjs": "^1.1.3"
   }
 }

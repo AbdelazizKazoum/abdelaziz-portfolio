@@ -21,6 +21,175 @@ const News = () => {
 
   return (
     <Fragment>
+      <style jsx>{`
+        /*---------------------------------------------------*/
+        /* 09) KURA NEWS
+        /*---------------------------------------------------*/
+        .kura_tm_news {
+          width: 100%;
+          height: auto;
+          clear: both;
+          float: left;
+          padding: 140px 0px 140px 0px;
+        }
+        .kura_tm_news .news_list {
+          width: 100%;
+          height: auto;
+          clear: both;
+          float: left;
+          padding-top: 92px;
+        }
+        .kura_tm_news .news_list .list_inner {
+          width: 100%;
+          height: auto;
+          clear: both;
+          float: left;
+        }
+        .kura_tm_news .news_list .image {
+          position: relative;
+        }
+        .kura_tm_news .news_list .image img {
+          position: relative;
+          min-width: 100%;
+          opacity: 0;
+        }
+        .kura_tm_news .news_list .image .main {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: cover;
+          border-radius: 10px;
+        }
+        .kura_tm_news .news_list .overlay {
+          position: absolute;
+          top: 10px;
+          bottom: 10px;
+          left: 10px;
+          right: 10px;
+          background-color: #fff;
+          border-radius: 10px;
+          z-index: 1;
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+        .kura_tm_news .news_list .list_inner:hover .overlay {
+          opacity: 1;
+          visibility: visible;
+        }
+        .kura_tm_news .news_list .details {
+          position: absolute;
+          z-index: 2;
+          bottom: 0px;
+          left: 0px;
+          padding: 0px 40px 45px 49px;
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+        .kura_tm_news .news_list .list_inner:hover .details {
+          opacity: 1;
+          visibility: visible;
+        }
+        .kura_tm_news .news_list .details h3 {
+          font-size: 20px;
+          font-weight: 700;
+        }
+        .kura_tm_news .news_list .details span {
+          font-family: "Poppins";
+          margin-bottom: 6px;
+          display: inline-block;
+        }
+        .kura_tm_news .news_list .list_inner .svg {
+          position: absolute;
+          top: 40px;
+          right: 39px;
+          width: 50px;
+          height: 50px;
+          z-index: 2;
+          transform: rotate(-50deg);
+          color: #000;
+          opacity: 0;
+          visibility: hidden;
+          -webkit-transition: all 0.3s ease;
+          -moz-transition: all 0.3s ease;
+          -ms-transition: all 0.3s ease;
+          -o-transition: all 0.3s ease;
+          transition: all 0.3s ease;
+        }
+        .kura_tm_news .news_list .list_inner:hover .svg {
+          opacity: 1;
+          visibility: visible;
+        }
+        .kura_tm_news .news_hidden_details {
+          display: none;
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          z-index: -11;
+        }
+        .kura_tm_modalbox .news_popup_informations {
+          width: 100%;
+          height: auto;
+          clear: both;
+          float: left;
+        }
+        .kura_tm_modalbox .news_popup_informations .image {
+          position: relative;
+          margin-bottom: 37px;
+        }
+        .kura_tm_modalbox .news_popup_informations .image img {
+          position: relative;
+          opacity: 0;
+          min-width: 100%;
+        }
+        .kura_tm_modalbox .news_popup_informations .image .main {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          border-radius: 10px;
+        }
+        .kura_tm_modalbox .news_popup_informations .details {
+          width: 100%;
+          float: left;
+          margin-bottom: 20px;
+        }
+        .kura_tm_modalbox .news_popup_informations .details span {
+          display: inline-block;
+          margin-bottom: 7px;
+        }
+        .kura_tm_modalbox .news_popup_informations .details h3 {
+          font-size: 22px;
+        }
+        .kura_tm_modalbox .news_popup_informations .text {
+          width: 100%;
+          float: left;
+        }
+        .kura_tm_modalbox .news_popup_informations .text p {
+          margin-bottom: 15px;
+        }
+        .kura_tm_modalbox .news_popup_informations .text p:last-child {
+          margin-bottom: 0px;
+        }
+      `}</style>
+
       <div className="kura_tm_section" id="news">
         <div className="kura_tm_news">
           <div className="container">
@@ -75,18 +244,18 @@ const News = () => {
                                 and achieve your goals.
                               </p>
                               <p>
-                                In today’s digital world, your website is the
+                                In today's digital world, your website is the
                                 first interaction consumers have with your
                                 business. That's why almost 95 percent of a
-                                user’s first impression relates to web design.
-                                It’s also why web design services can have an
-                                immense impact on your company’s bottom line.
+                                user's first impression relates to web design.
+                                It's also why web design services can have an
+                                immense impact on your company's bottom line.
                               </p>
                               <p>
-                                That’s why more companies are not only
-                                reevaluating their website’s design but also
+                                That's why more companies are not only
+                                reevaluating their website's design but also
                                 partnering with Kura, the web design agency
-                                that’s driven more than $2.4 billion in revenue
+                                that's driven more than $2.4 billion in revenue
                                 for its clients. With over 50 web design awards
                                 under our belt, we're confident we can design a
                                 custom website that drives sales for your unique
@@ -140,18 +309,18 @@ const News = () => {
                                 and achieve your goals.
                               </p>
                               <p>
-                                In today’s digital world, your website is the
+                                In today's digital world, your website is the
                                 first interaction consumers have with your
                                 business. That's why almost 95 percent of a
-                                user’s first impression relates to web design.
-                                It’s also why web design services can have an
-                                immense impact on your company’s bottom line.
+                                user's first impression relates to web design.
+                                It's also why web design services can have an
+                                immense impact on your company's bottom line.
                               </p>
                               <p>
-                                That’s why more companies are not only
-                                reevaluating their website’s design but also
+                                That's why more companies are not only
+                                reevaluating their website's design but also
                                 partnering with Kura, the web design agency
-                                that’s driven more than $2.4 billion in revenue
+                                that's driven more than $2.4 billion in revenue
                                 for its clients. With over 50 web design awards
                                 under our belt, we're confident we can design a
                                 custom website that drives sales for your unique
@@ -205,18 +374,18 @@ const News = () => {
                                 and achieve your goals.
                               </p>
                               <p>
-                                In today’s digital world, your website is the
+                                In today's digital world, your website is the
                                 first interaction consumers have with your
                                 business. That's why almost 95 percent of a
-                                user’s first impression relates to web design.
-                                It’s also why web design services can have an
-                                immense impact on your company’s bottom line.
+                                user's first impression relates to web design.
+                                It's also why web design services can have an
+                                immense impact on your company's bottom line.
                               </p>
                               <p>
-                                That’s why more companies are not only
-                                reevaluating their website’s design but also
+                                That's why more companies are not only
+                                reevaluating their website's design but also
                                 partnering with Kura, the web design agency
-                                that’s driven more than $2.4 billion in revenue
+                                that's driven more than $2.4 billion in revenue
                                 for its clients. With over 50 web design awards
                                 under our belt, we're confident we can design a
                                 custom website that drives sales for your unique
@@ -270,18 +439,18 @@ const News = () => {
                                 and achieve your goals.
                               </p>
                               <p>
-                                In today’s digital world, your website is the
+                                In today's digital world, your website is the
                                 first interaction consumers have with your
                                 business. That's why almost 95 percent of a
-                                user’s first impression relates to web design.
-                                It’s also why web design services can have an
-                                immense impact on your company’s bottom line.
+                                user's first impression relates to web design.
+                                It's also why web design services can have an
+                                immense impact on your company's bottom line.
                               </p>
                               <p>
-                                That’s why more companies are not only
-                                reevaluating their website’s design but also
+                                That's why more companies are not only
+                                reevaluating their website's design but also
                                 partnering with Kura, the web design agency
-                                that’s driven more than $2.4 billion in revenue
+                                that's driven more than $2.4 billion in revenue
                                 for its clients. With over 50 web design awards
                                 under our belt, we're confident we can design a
                                 custom website that drives sales for your unique
