@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { HomeModal } from "./ContentModal";
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   const [open, setOpen] = useState(false);
@@ -377,6 +378,16 @@ const Home = () => {
           }
 
  @media (max-width: 768px) {
+
+   .kura_tm_hero {
+    padding: 80px 0px 120px 0px;
+  }
+
+  .job span {
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+}
+
       .content {
         flex-direction: column !important;
         padding: 30px 15px;
@@ -435,6 +446,7 @@ const Home = () => {
       .job {
         font-size: 28px !important;
       }
+
     }
   `}
       </style>
@@ -447,7 +459,19 @@ const Home = () => {
                   👋Hi, Welcome There!
                 </span>
                 <h3 className="job" style={jobStyles}>
-                  I'm Full Stack js Developer
+                  I'm{" "}
+                  <span style={{ color: "#" }}>
+                    <Typewriter
+                      words={["Abdelaziz Kazoum", "a Full Stack JS Developer"]}
+                      loop={true}
+                      cursor
+                      cursorStyle="|"
+                      cursorColor="#ff4522" // Add this line
+                      typeSpeed={70}
+                      deleteSpeed={50}
+                      delaySpeed={3000}
+                    />
+                  </span>
                 </h3>
 
                 <div className="services" style={servicesStyles}>
