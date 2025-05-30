@@ -398,6 +398,7 @@ const Home = () => {
         width: 100% !important;
         padding: 0px !important;
         text-align: center !important;
+
       }
 
       .left h3 {
@@ -446,6 +447,9 @@ const Home = () => {
       .job {
         font-size: 28px !important;
       }
+
+      body.opened .kura_tm_hero .content .right{
+      margin-bottom: 0px !important;}
 
     }
   `}
