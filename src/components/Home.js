@@ -460,7 +460,7 @@ const Home = () => {
                 </span>
                 <h3 className="job" style={jobStyles}>
                   I'm{" "}
-                  <span style={{ color: "#" }}>
+                  <span style={{ color: "#v" }}>
                     <Typewriter
                       words={["Abdelaziz Kazoum", "a Full Stack JS Developer"]}
                       loop={true}
