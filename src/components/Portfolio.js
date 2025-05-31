@@ -67,6 +67,7 @@ const projects = [
 ];
 
 const ITEMS_PER_PAGE = 3;
+const MAX_TECH_TAGS = 5;
 
 const Portfolio = () => {
   const [activeProject, setActiveProject] = useState(null);
@@ -87,6 +88,33 @@ const Portfolio = () => {
     if (startIndex > 0) {
       setStartIndex(startIndex - 1);
     }
+  };
+
+  const abbreviateTech = (tech) => {
+    const map = {
+      "Next.js": "Next",
+      NestJS: "Nest",
+      MongoDB: "Mongo",
+      "Tailwind CSS": "TW",
+      ShadCN: "ShadCN",
+      NextAuth: "NAuth",
+      "Passport.js": "Passport",
+      CASL: "CASL",
+      "JSON-to-Form": "JSON→Form",
+      Docker: "Docker",
+      "Docker Compose": "D-Compose",
+      "GitHub Actions": "GH Actions",
+      React: "React",
+      MySQL: "MySQL",
+      "Framer Motion": "Framer",
+      Vercel: "Vercel",
+      Vue: "Vue",
+      "Chart.js": "Chart",
+      Zod: "Zod",
+      Prisma: "Prisma",
+      MDX: "MDX",
+    };
+    return map[tech] || tech;
   };
 
   return (
@@ -123,9 +151,16 @@ const Portfolio = () => {
                         <h3>{project.title}</h3>
                         <span>Project</span>
                         <ul className="tech-stack">
-                          {project.techStack.map((tech, i) => (
-                            <li key={i}>{tech}</li>
-                          ))}
+                          {project.techStack
+                            .slice(0, MAX_TECH_TAGS)
+                            .map((tech, i) => (
+                              <li key={i} title={tech}>
+                                {abbreviateTech(tech)}
+                              </li>
+                            ))}
+                          {project.techStack.length > MAX_TECH_TAGS && (
+                            <li>...</li>
+                          )}
                         </ul>
                       </div>
                     </div>
@@ -298,21 +333,35 @@ const Portfolio = () => {
         }
 
         .kura_tm_portfolio .tech-stack {
-          margin-top: 10px;
+          margin-top: 6px;
           padding: 0;
           list-style: none;
           display: flex;
           flex-wrap: wrap;
-          gap: 6px;
+          gap: 4px;
+          max-width: 100%;
+          overflow-x: auto;
+          scrollbar-width: thin; /* Firefox */
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .kura_tm_portfolio .tech-stack::-webkit-scrollbar {
+          height: 5px;
+        }
+        .kura_tm_portfolio .tech-stack::-webkit-scrollbar-thumb {
+          background-color: rgba(255, 69, 34, 0.5);
+          border-radius: 3px;
         }
 
         .kura_tm_portfolio .tech-stack li {
           background-color: #ff4522;
           color: white;
           font-size: 12px;
-          padding: 4px 8px;
-          border-radius: 5px;
+          padding: 2px 6px;
+          border-radius: 4px;
           font-family: "Poppins", sans-serif;
+          white-space: nowrap;
+          cursor: default;
         }
 
         .kura_tm_portfolio .image .svg {

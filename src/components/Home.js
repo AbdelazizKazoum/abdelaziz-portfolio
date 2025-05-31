@@ -319,6 +319,8 @@ const Home = () => {
 
   const rightImgStyles = {
     minWidth: "100%",
+    height: "60vh", // Set height to 60% of viewport height for large screens
+    objectFit: "contain", // Maintain aspect ratio
     position: "relative",
   };
 
@@ -380,7 +382,7 @@ const Home = () => {
  @media (max-width: 768px) {
 
    .kura_tm_hero {
-    padding: 80px 0px 120px 0px;
+    padding: 80px 0px 0px;
   }
 
   .job span {
@@ -450,6 +452,12 @@ const Home = () => {
 
       body.opened .kura_tm_hero .content .right{
       margin-bottom: 0px !important;}
+
+      /* Reset image height on mobile */
+      .right img {
+        height: auto !important;
+        min-width: 80% !important;
+      }
 
     }
   `}
