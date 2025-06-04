@@ -15,7 +15,7 @@ const Home = () => {
     {
       id: 1,
       title: "Full Stack Development",
-      img: "/img/service/web.jpg",
+      img: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfM5yio9rMMjPFgyAleQg3ALD3WJoYGji5_qUUHCseM6V6ZxHMdB1gclk-iba_uDw5C6EDBNrR9PeNLvqhbnU5jKWA4_ATfizS2Wn2X2q2xgL_H9TTx765Q8rmhSSiSU4xKSVqJ?key=8Icro23PLHSLRmHd-kIQoO0c",
       desc: `As a Full Stack JavaScript Developer, I create end-to-end web applications using modern technologies. 
       
       **Frontend Development:**

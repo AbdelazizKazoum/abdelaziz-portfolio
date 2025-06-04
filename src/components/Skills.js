@@ -14,12 +14,20 @@ const skillsData = [
   { name: "SQL", percent: 80, icon: "devicon-mysql-plain colored" },
   { name: "NoSQL", percent: 85, icon: "devicon-mongodb-plain colored" },
   { name: "Docker", percent: 80, icon: "devicon-docker-plain colored" },
-  { name: "Nginx", percent: 75, icon: "devicon-nginx-original colored" },
+  // { name: "Nginx", percent: 75, icon: "devicon-nginx-original colored" },
   { name: "Bootstrap", percent: 85, icon: "devicon-bootstrap-plain colored" },
   {
     name: "Tailwind CSS",
     percent: 90,
     icon: "devicon-tailwindcss-plain colored",
+  },
+  { name: "Git", percent: 90, icon: "devicon-git-plain colored" },
+  { name: "GraphQL", percent: 80, icon: "devicon-graphql-plain colored" },
+  { name: "Redux", percent: 85, icon: "devicon-redux-original colored" },
+  {
+    name: "AWS",
+    percent: 70,
+    icon: "devicon-amazonwebservices-original colored",
   },
 ];
 
@@ -122,25 +130,19 @@ const Skills = () => {
         .skills_grid {
           display: grid;
           gap: 30px;
-          grid-template-columns: 1fr; /* mobile - one column */
+          grid-template-columns: repeat(2, 1fr); /* mobile default: 2 columns */
           margin-top: 40px;
-        }
-
-        @media (min-width: 640px) {
-          .skills_grid {
-            grid-template-columns: repeat(2, 1fr); /* tablets */
-          }
         }
 
         @media (min-width: 768px) {
           .skills_grid {
-            grid-template-columns: repeat(3, 1fr); /* medium screens */
+            grid-template-columns: repeat(3, 1fr); /* tablets */
           }
         }
 
         @media (min-width: 1024px) {
           .skills_grid {
-            grid-template-columns: repeat(4, 1fr); /* large screens */
+            grid-template-columns: repeat(5, 1fr); /* large screens */
           }
         }
 
@@ -159,11 +161,12 @@ const Skills = () => {
         }
 
         .skill_icon {
-          font-size: 48px; /* larger icons */
+          font-size: 48px;
           margin-bottom: 10px;
         }
 
         .skill_title {
+          font-size: 14px; /* Smaller title */
           margin: 10px 0 5px;
           color: white;
         }
