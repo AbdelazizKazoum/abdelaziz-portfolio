@@ -9,14 +9,98 @@ const News = () => {
     img: null,
     title: "",
     date: "",
+    content: "",
   });
-  const onOpenModal = (img, title, date) => {
+
+  // News data array with real JavaScript stack development news
+  const newsData = [
+    {
+      id: 1,
+      title: "React 19 Beta Introduces Revolutionary Features",
+      date: "April 25, 2024",
+      image:
+        "https://miro.medium.com/v2/resize:fit:720/format:webp/1*1MXmdOFe029RT-MmtmzfAw.jpeg",
+      content: `React 19 Beta brings groundbreaking features including Actions for handling data mutations and state updates, significant improvements in server-side rendering performance, and enhanced developer experience. The new Actions API simplifies form handling and async operations, while concurrent features provide smoother user interactions.
+
+This major update represents a significant leap forward in React's evolution, with improved TypeScript support and better integration with modern web standards. The React team has focused on performance optimizations that make applications faster and more responsive.
+
+Developers can expect enhanced debugging capabilities, better error boundaries, and streamlined state management patterns that reduce boilerplate code while maintaining the flexibility React is known for.`,
+    },
+    {
+      id: 2,
+      title: "Next.js 15 Launches with Turbopack Performance Boost",
+      date: "October 21, 2024",
+      image:
+        "https://miro.medium.com/v2/resize:fit:720/format:webp/1*O0Wodmsm5OkcO2pwy2LDrg@2x.jpeg",
+      content: `Next.js 15 delivers unprecedented performance improvements with Turbopack integration, featuring up to 76.7% faster local server startup and 96.3% faster code updates with Fast Refresh. The new Static Route Indicator provides better visibility into application routing behavior.
+
+The release includes significant enhancements to the App Router, improved TypeScript support, and better integration with React Server Components. Developers can now enjoy faster builds and more efficient development workflows.
+
+Key improvements include enhanced error handling, better debugging tools, and streamlined deployment processes that make scaling Next.js applications more manageable for teams of all sizes.`,
+    },
+    {
+      id: 3,
+      title: "JavaScript Tooling Evolution Continues in 2024",
+      date: "December 27, 2024",
+      image:
+        "https://d2ms8rpfqc4h24.cloudfront.net/top_javascript_development_tools_bb7222ea32.jpg",
+      content: `The JavaScript ecosystem saw remarkable growth in 2024, with significant advances in build tools, testing frameworks, and development environments. New tooling focuses on performance, developer experience, and interoperability between different frameworks and libraries.
+
+Major improvements include faster bundlers, more intelligent code splitting, and enhanced support for modern JavaScript features. The community has embraced TypeScript adoption and improved tooling for both frontend and backend development.
+
+Notable trends include the rise of native ESM support, improved debugging capabilities, and better integration between different parts of the JavaScript stack, making full-stack development more cohesive and efficient.`,
+    },
+    {
+      id: 4,
+      title: "React Server Components Become Ecosystem Standard",
+      date: "January 15, 2025",
+      image:
+        "https://via.placeholder.com/709x709/20232A/61DAFB?text=React+Server+Components",
+      content: `React Server Components are becoming the standard primitive across the React ecosystem, with React Router and TanStack Start adopting RSC in their upcoming releases. This shift represents a fundamental change in how React applications handle server-side rendering and data fetching.
+
+The adoption of RSC enables better performance through reduced JavaScript bundle sizes, improved SEO capabilities, and more efficient data loading patterns. Developers can now build more performant applications with less client-side JavaScript.
+
+This evolution simplifies the development process while providing better user experiences, particularly for content-heavy applications that benefit from server-side rendering and progressive enhancement strategies.`,
+    },
+    {
+      id: 5,
+      title: "TypeScript 5.7 Enhances Developer Experience",
+      date: "November 20, 2024",
+      image:
+        "https://via.placeholder.com/709x709/3178C6/FFFFFF?text=TypeScript+5.7",
+      content: `TypeScript 5.7 introduces powerful new features that enhance type safety and developer productivity. The release includes improved inference algorithms, better support for modern JavaScript patterns, and enhanced integration with popular frameworks.
+
+Key improvements include more accurate type checking, better performance for large codebases, and enhanced support for decorators and other advanced language features. The compiler now provides more helpful error messages and suggestions.
+
+These enhancements make TypeScript even more appealing for large-scale applications, with better tooling support in popular editors and improved integration with build systems and testing frameworks.`,
+    },
+    {
+      id: 6,
+      title: "Node.js Security and Performance Updates",
+      date: "March 12, 2024",
+      image:
+        "https://via.placeholder.com/709x709/339933/FFFFFF?text=Node.js+Updates",
+      content: `Node.js continues to evolve with significant security enhancements and performance optimizations. Recent updates focus on improving runtime security, reducing memory footprint, and enhancing compatibility with modern JavaScript features.
+
+The latest versions include better support for ESM modules, improved V8 integration, and enhanced debugging capabilities. Security patches address critical vulnerabilities while maintaining backward compatibility.
+
+Performance improvements include faster startup times, reduced memory usage, and better handling of concurrent operations, making Node.js applications more efficient and scalable for production environments.`,
+    },
+  ];
+
+  const onOpenModal = (newsItem) => {
     setOpen(true);
-    setModalValue({ img, title, date });
+    setModalValue({
+      img: newsItem.image,
+      title: newsItem.title,
+      date: newsItem.date,
+      content: newsItem.content,
+    });
   };
+
   const onCloseModal = () => {
     setOpen(false);
-    setModalValue({ img: null, title: "", date: "" });
+    setModalValue({ img: null, title: "", date: "", content: "" });
   };
 
   return (
@@ -195,272 +279,52 @@ const News = () => {
           <div className="container">
             <div className="kura_tm_main_title">
               <span>News</span>
-              <h3>Latest News</h3>
+              <h3>Latest JavaScript Development News</h3>
             </div>
             <div className="news_list wow fadeInUp" data-wow-duration=".7s">
               <div className="slick-container">
                 <div className="slick-wrapper">
                   <Swiper {...newsSlider}>
-                    <SwiperSlide className="slick-slide">
-                      <div className="list_inner">
-                        <div className="image">
-                          <img src="/img/portfolio/410-460.jpg" alt="" />
-                          <div
-                            className="main"
-                            style={{
-                              backgroundImage: "url(/img/news/1.jpg)",
-                            }}
-                          ></div>
-                        </div>
-                        <div className="overlay"></div>
-                        <img
-                          className="svg"
-                          src="/img/svg/right-arrow.svg"
-                          alt=""
-                        />
-                        <div className="details">
-                          <span>September 02, 2021</span>
-                          <h3>VS Code Gets New JavaScript Debugger</h3>
-                        </div>
-                        <a
-                          className="kura_tm_full_link"
-                          onClick={() =>
-                            onOpenModal(
-                              `img/news/1.jpg`,
-                              "VS Code Gets New JavaScript Debugger",
-                              "September 02, 2021"
-                            )
-                          }
-                        ></a>
-                        <div className="news_hidden_details">
-                          <div className="news_popup_informations">
-                            <div className="text">
-                              <p>
-                                Kura is a leading web design agency with an
-                                award-winning design team that creates
-                                innovative, effective websites that capture your
-                                brand, improve your conversion rates, and
-                                maximize your revenue to help grow your business
-                                and achieve your goals.
-                              </p>
-                              <p>
-                                In today's digital world, your website is the
-                                first interaction consumers have with your
-                                business. That's why almost 95 percent of a
-                                user's first impression relates to web design.
-                                It's also why web design services can have an
-                                immense impact on your company's bottom line.
-                              </p>
-                              <p>
-                                That's why more companies are not only
-                                reevaluating their website's design but also
-                                partnering with Kura, the web design agency
-                                that's driven more than $2.4 billion in revenue
-                                for its clients. With over 50 web design awards
-                                under our belt, we're confident we can design a
-                                custom website that drives sales for your unique
-                                business.
-                              </p>
+                    {newsData.map((newsItem) => (
+                      <SwiperSlide key={newsItem.id} className="slick-slide">
+                        <div className="list_inner">
+                          <div className="image">
+                            <img src="/img/portfolio/410-460.jpg" alt="" />
+                            <div
+                              className="main"
+                              style={{
+                                backgroundImage: `url(${newsItem.image})`,
+                              }}
+                            ></div>
+                          </div>
+                          <div className="overlay"></div>
+                          <img
+                            className="svg"
+                            src="/img/svg/right-arrow.svg"
+                            alt=""
+                          />
+                          <div className="details">
+                            <span>{newsItem.date}</span>
+                            <h3>{newsItem.title}</h3>
+                          </div>
+                          <a
+                            className="kura_tm_full_link"
+                            onClick={() => onOpenModal(newsItem)}
+                          ></a>
+                          <div className="news_hidden_details">
+                            <div className="news_popup_informations">
+                              <div className="text">
+                                {newsItem.content
+                                  .split("\n\n")
+                                  .map((paragraph, index) => (
+                                    <p key={index}>{paragraph}</p>
+                                  ))}
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="slick-slide">
-                      <div className="list_inner">
-                        <div className="image">
-                          <img src="/img/portfolio/410-460.jpg" alt="" />
-                          <div
-                            className="main"
-                            style={{
-                              backgroundImage: "url(/img/news/2.jpg)",
-                            }}
-                          ></div>
-                        </div>
-                        <div className="overlay"></div>
-                        <img
-                          className="svg"
-                          src="/img/svg/right-arrow.svg"
-                          alt=""
-                        />
-                        <div className="details">
-                          <span>August 17, 2021</span>
-                          <h3>Javalin Framework for Kotlin and Java Updated</h3>
-                        </div>
-                        <a
-                          className="kura_tm_full_link"
-                          onClick={() =>
-                            onOpenModal(
-                              `img/news/2.jpg`,
-                              "Javalin Framework for Kotlin and Java Updated",
-                              "August 17, 2021"
-                            )
-                          }
-                        ></a>
-                        <div className="news_hidden_details">
-                          <div className="news_popup_informations">
-                            <div className="text">
-                              <p>
-                                Kura is a leading web design agency with an
-                                award-winning design team that creates
-                                innovative, effective websites that capture your
-                                brand, improve your conversion rates, and
-                                maximize your revenue to help grow your business
-                                and achieve your goals.
-                              </p>
-                              <p>
-                                In today's digital world, your website is the
-                                first interaction consumers have with your
-                                business. That's why almost 95 percent of a
-                                user's first impression relates to web design.
-                                It's also why web design services can have an
-                                immense impact on your company's bottom line.
-                              </p>
-                              <p>
-                                That's why more companies are not only
-                                reevaluating their website's design but also
-                                partnering with Kura, the web design agency
-                                that's driven more than $2.4 billion in revenue
-                                for its clients. With over 50 web design awards
-                                under our belt, we're confident we can design a
-                                custom website that drives sales for your unique
-                                business.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="slick-slide">
-                      <div className="list_inner">
-                        <div className="image">
-                          <img src="/img/portfolio/410-460.jpg" alt="" />
-                          <div
-                            className="main"
-                            style={{
-                              backgroundImage: "url(/img/news/3.jpg)",
-                            }}
-                          ></div>
-                        </div>
-                        <div className="overlay"></div>
-                        <img
-                          className="svg"
-                          src="/img/svg/right-arrow.svg"
-                          alt=""
-                        />
-                        <div className="details">
-                          <span>July 05, 2021</span>
-                          <h3>JavaScript Dominated Open Source in 2021</h3>
-                        </div>
-                        <a
-                          className="kura_tm_full_link"
-                          onClick={() =>
-                            onOpenModal(
-                              `img/news/3.jpg`,
-                              "JavaScript Dominated Open Source in 2021",
-                              "July 05, 2021"
-                            )
-                          }
-                        ></a>
-                        <div className="news_hidden_details">
-                          <div className="news_popup_informations">
-                            <div className="text">
-                              <p>
-                                Kura is a leading web design agency with an
-                                award-winning design team that creates
-                                innovative, effective websites that capture your
-                                brand, improve your conversion rates, and
-                                maximize your revenue to help grow your business
-                                and achieve your goals.
-                              </p>
-                              <p>
-                                In today's digital world, your website is the
-                                first interaction consumers have with your
-                                business. That's why almost 95 percent of a
-                                user's first impression relates to web design.
-                                It's also why web design services can have an
-                                immense impact on your company's bottom line.
-                              </p>
-                              <p>
-                                That's why more companies are not only
-                                reevaluating their website's design but also
-                                partnering with Kura, the web design agency
-                                that's driven more than $2.4 billion in revenue
-                                for its clients. With over 50 web design awards
-                                under our belt, we're confident we can design a
-                                custom website that drives sales for your unique
-                                business.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
-                    <SwiperSlide className="slick-slide">
-                      <div className="list_inner">
-                        <div className="image">
-                          <img src="/img/portfolio/410-460.jpg" alt="" />
-                          <div
-                            className="main"
-                            style={{
-                              backgroundImage: "url(/img/news/4.jpg)",
-                            }}
-                          ></div>
-                        </div>
-                        <div className="overlay"></div>
-                        <img
-                          className="svg"
-                          src="/img/svg/right-arrow.svg"
-                          alt=""
-                        />
-                        <div className="details">
-                          <span>April 22, 2021</span>
-                          <h3>Perfecto Tests Progressive Web Apps</h3>
-                        </div>
-                        <a
-                          className="kura_tm_full_link"
-                          onClick={() =>
-                            onOpenModal(
-                              `img/news/4.jpg`,
-                              "Perfecto Tests Progressive Web Apps",
-                              "April 22, 2021"
-                            )
-                          }
-                        ></a>
-                        <div className="news_hidden_details">
-                          <div className="news_popup_informations">
-                            <div className="text">
-                              <p>
-                                Kura is a leading web design agency with an
-                                award-winning design team that creates
-                                innovative, effective websites that capture your
-                                brand, improve your conversion rates, and
-                                maximize your revenue to help grow your business
-                                and achieve your goals.
-                              </p>
-                              <p>
-                                In today's digital world, your website is the
-                                first interaction consumers have with your
-                                business. That's why almost 95 percent of a
-                                user's first impression relates to web design.
-                                It's also why web design services can have an
-                                immense impact on your company's bottom line.
-                              </p>
-                              <p>
-                                That's why more companies are not only
-                                reevaluating their website's design but also
-                                partnering with Kura, the web design agency
-                                that's driven more than $2.4 billion in revenue
-                                for its clients. With over 50 web design awards
-                                under our belt, we're confident we can design a
-                                custom website that drives sales for your unique
-                                business.
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </SwiperSlide>
+                      </SwiperSlide>
+                    ))}
                   </Swiper>
                 </div>
 
@@ -500,6 +364,7 @@ const News = () => {
         img={modalValue.img}
         title={modalValue.title}
         date={modalValue.date}
+        desc={modalValue.content}
       />
     </Fragment>
   );
