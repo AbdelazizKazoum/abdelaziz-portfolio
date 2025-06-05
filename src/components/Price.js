@@ -17,7 +17,7 @@ const Price = () => {
           height: auto;
           clear: both;
           float: left;
-          padding: 80px 0px 150px 0px;
+          padding: 80px 0px 150px 0px; /* Desktop section padding */
           background-color: #f9f9f9;
         }
         .kura_tm_pricing .kura_tm_main_title {
@@ -63,13 +63,12 @@ const Price = () => {
           clear: both;
           display: flex;
           align-items: center;
-          padding: 30px 30px 30px 30px;
+          padding: 30px 30px 30px 30px; /* Desktop item padding */
           gap: 15px;
           position: relative;
           background-color: #fff;
           box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.08);
           border-radius: 10px;
-
           transition: all 0.3s ease;
         }
         .kura_tm_pricing .right ul li .list_inner:hover {
@@ -79,7 +78,6 @@ const Price = () => {
           font-size: 18px;
           color: #000;
           font-family: "Poppins", sans-serif;
-
           transition: all 0.3s ease;
         }
         .kura_tm_pricing .right ul li .list_inner:hover span {
@@ -90,7 +88,7 @@ const Price = () => {
           flex: 1;
         }
         .kura_tm_pricing .right .cost {
-          font-size: 18px;
+          font-size: 18px; /* Desktop cost font size */
           min-width: 70px;
           text-align: right;
           padding-right: 20px;
@@ -104,8 +102,8 @@ const Price = () => {
         }
         .kura_tm_pricing .right ul li svg.icon {
           color: #ff4522;
-          min-width: 32px;
-          min-height: 32px;
+          min-width: 32px; /* Desktop icon size */
+          min-height: 32px; /* Desktop icon size */
           flex-shrink: 0;
           transition: all 0.3s ease;
         }
@@ -114,15 +112,18 @@ const Price = () => {
         }
 
         /* Responsive styles */
-        @media (max-width: 991px) {
+        /* For Tablets and below */
+        @media (max-width: 1040px) {
+          .kura_tm_pricing {
+            padding: 70px 20px 120px 20px; /* Tablet section padding */
+          }
           .kura_tm_pricing .pricing_inner {
-            flex-wrap: wrap;
+            flex-direction: column; /* Ensure stacking, width 100% will also enforce this */
             gap: 40px;
           }
           .kura_tm_pricing .left,
           .kura_tm_pricing .right {
             width: 100%;
-            // padding: 0 20px;
           }
           .kura_tm_pricing .left {
             padding-right: 0;
@@ -133,31 +134,56 @@ const Price = () => {
           .kura_tm_pricing .right ul {
             margin-top: 30px;
           }
-        }
 
-        @media (max-width: 600px) {
-          .kura_tm_pricing {
-            padding: 40px 10px 80px 10px;
-          }
+          /* Styles for individual pricing items on tablets */
           .kura_tm_pricing .right ul li .list_inner {
-            padding: 20px;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
-          }
-          .kura_tm_pricing .right .cost {
-            min-width: auto;
-            padding-right: 0;
-            text-align: left;
-            margin-left: 0;
-            font-size: 16px;
+            padding: 25px; /* Tablet item padding */
+            flex-direction: column; /* Stack icon, title, cost vertically */
+            align-items: center; /* Center items */
+            gap: 12px; /* Gap between stacked items */
           }
           .kura_tm_pricing .right .title {
-            padding-right: 0;
+            padding-right: 0; /* Remove desktop padding */
+            flex: none; /* Reset desktop flex behavior */
+            text-align: center; /* Center title text */
+          }
+          .kura_tm_pricing .right .cost {
+            min-width: auto; /* Reset min-width */
+            padding-right: 0; /* Remove desktop padding */
+            text-align: center; /* Center cost text */
+            margin-left: 0; /* Remove desktop margin */
+            font-size: 17px; /* Tablet cost font size */
           }
           .kura_tm_pricing .right ul li svg.icon {
-            min-width: 28px;
-            min-height: 28px;
+            min-width: 30px; /* Tablet icon size */
+            min-height: 30px; /* Tablet icon size */
+          }
+          
+          /* Optional: Center the text content in the left column on tablets if desired */
+          /*
+          .kura_tm_pricing .left .kura_tm_main_title,
+          .kura_tm_pricing .left .text {
+            text-align: center; 
+          }
+          */
+        }
+
+        /* For Small Mobile phones */
+        @media (max-width: 600px) {
+          .kura_tm_pricing {
+            padding: 40px 10px 80px 10px; /* Mobile section padding */
+          }
+          .kura_tm_pricing .right ul li .list_inner {
+            padding: 20px; /* Mobile item padding */
+            gap: 10px; /* Mobile gap between stacked items */
+          }
+          /* Title styles inherited from 991px (centered, flex:none) */
+          .kura_tm_pricing .right .cost {
+            font-size: 16px; /* Mobile cost font size */
+          }
+          .kura_tm_pricing .right ul li svg.icon {
+            min-width: 28px; /* Mobile icon size */
+            min-height: 28px; /* Mobile icon size */
           }
         }
       `}</style>
@@ -188,7 +214,8 @@ const Price = () => {
                   <ul>
                     <li className="wow fadeInUp" data-wow-duration=".7s">
                       <div className="list_inner">
-                        <MdWeb size={32} className="icon" />
+                        <MdWeb className="icon" />{" "}
+                        {/* Default size from react-icons will be used unless overridden by specific CSS for svg within .icon if needed */}
                         <div className="title">
                           <span>Fullstack Web Application</span>
                         </div>
@@ -203,7 +230,7 @@ const Price = () => {
                       data-wow-delay=".2s"
                     >
                       <div className="list_inner">
-                        <FaServer size={32} className="icon" />
+                        <FaServer className="icon" />
                         <div className="title">
                           <span>API Development (Node.js/Nestjs/Express)</span>
                         </div>
@@ -218,7 +245,7 @@ const Price = () => {
                       data-wow-delay=".4s"
                     >
                       <div className="list_inner">
-                        <SiDocker size={32} className="icon" />
+                        <SiDocker className="icon" />
                         <div className="title">
                           <span>Docker & Deployment Setup</span>
                         </div>
@@ -233,10 +260,7 @@ const Price = () => {
                       data-wow-delay=".6s"
                     >
                       <div className="list_inner">
-                        <RiGitRepositoryPrivateLine
-                          size={32}
-                          className="icon"
-                        />
+                        <RiGitRepositoryPrivateLine className="icon" />
                         <div className="title">
                           <span>CI/CD Pipeline Integration</span>
                         </div>
@@ -251,7 +275,7 @@ const Price = () => {
                       data-wow-delay=".8s"
                     >
                       <div className="list_inner">
-                        <FaCloud size={32} className="icon" />
+                        <FaCloud className="icon" />
                         <div className="title">
                           <span>Cloud Deployment & Maintenance</span>
                         </div>

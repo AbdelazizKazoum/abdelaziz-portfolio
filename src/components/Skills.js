@@ -42,7 +42,10 @@ const Skills = () => {
         <div className="container">
           <div className="skills_inner">
             <div>
-              <div className="kura_tm_main_title light">
+              <div
+                style={{ marginBottom: "40px" }}
+                className="kura_tm_main_title light"
+              >
                 <span>Skills</span>
                 <h3>Tech Stack & Skills</h3>
               </div>
