@@ -8,19 +8,20 @@ const ProjectModal = ({ project, onClose }) => {
     document.body.style.overflow = "hidden";
     document.documentElement.style.overflow = "hidden";
 
-    // Optional: prevent touch move (mobile)
-    const preventTouch = (e) => e.preventDefault();
-    document.body.addEventListener("touchmove", preventTouch, {
-      passive: false,
-    });
+    // REMOVE THE FOLLOWING LINES:
+    // const preventTouch = (e) => e.preventDefault();
+    // document.body.addEventListener("touchmove", preventTouch, {
+    //   passive: false,
+    // });
 
     return () => {
       // Restore scroll on close
       document.body.style.overflow = originalBodyOverflow;
       document.documentElement.style.overflow = originalHtmlOverflow;
-      document.body.removeEventListener("touchmove", preventTouch);
+      // REMOVE THE FOLLOWING LINE:
+      // document.body.removeEventListener("touchmove", preventTouch);
     };
-  }, []);
+  }, []); // Empty dependency array means this effect runs once on mount and cleanup on unmount
 
   if (!project) return null;
 
@@ -35,11 +36,9 @@ const ProjectModal = ({ project, onClose }) => {
 
         <div className="modal-content">
           <h2 className="modal-title">{project.title}</h2>
-
           <div className="modal-description">
             <p>{project.description}</p>
           </div>
-
           <div className="tech-stack">
             <h4>Tech Stack</h4>
             <ul>
@@ -48,9 +47,7 @@ const ProjectModal = ({ project, onClose }) => {
               ))}
             </ul>
           </div>
-
           <h4>Screenshots </h4>
-
           {project.images.length > 0 && (
             <div className="modal-images">
               {project.images.map((img, index) => (
@@ -73,8 +70,9 @@ const ProjectModal = ({ project, onClose }) => {
           align-items: center;
           justify-content: center;
           z-index: 9999;
-          padding: 20px;
-          overscroll-behavior: contain; /* prevent scroll chaining */
+          padding: 20px; /* Added padding as per your calc in modal-container */
+          box-sizing: border-box; /* Ensure padding doesn't add to width/height */
+          overscroll-behavior: contain;
         }
 
         .modal-container {
@@ -82,11 +80,12 @@ const ProjectModal = ({ project, onClose }) => {
           border-radius: 15px;
           max-width: 800px;
           width: 100%;
-          /* take full height minus padding */
-          max-height: calc(100vh - 40px);
+          max-height: calc(
+            100vh - 40px
+          ); /* Assumes 20px padding on top & bottom of overlay */
           display: flex;
           flex-direction: column;
-          overflow: hidden;
+          overflow: hidden; /* Important: clips content, scroll handled by modal-content */
           box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
         }
 
@@ -94,7 +93,7 @@ const ProjectModal = ({ project, onClose }) => {
           background: #ffffff;
           padding: 10px 20px;
           border-bottom: 1px solid #e5e7eb;
-          position: sticky;
+          position: sticky; /* Sticks to the top of .modal-container */
           top: 0;
           z-index: 10;
           display: flex;
@@ -116,11 +115,12 @@ const ProjectModal = ({ project, onClose }) => {
 
         .modal-content {
           padding: 0 40px 40px;
-          overflow-y: auto;
+          overflow-y: auto; /* This enables scrolling for this specific element */
+          -webkit-overflow-scrolling: touch; /* Improves scrolling experience on iOS */
           scrollbar-width: thin;
           scrollbar-color: #d1d5db transparent;
-          flex-grow: 1; /* take available space */
-          overscroll-behavior: contain; /* prevent scroll chaining */
+          flex-grow: 1;
+          overscroll-behavior: contain; /* Prevents scroll chaining from this element */
         }
 
         .modal-content::-webkit-scrollbar {
