@@ -41,28 +41,25 @@ const projects = [
     ],
   },
   {
-    title: "Leo Dandora",
-    description: "A personal portfolio website with animations.",
-    techStack: ["React", "Framer Motion", "Vercel"],
-    images: ["/img/portfolio/5.jpg", "/img/portfolio/6.jpg"],
-  },
-  {
-    title: "Dashboard X",
-    description: "Admin dashboard with dark/light mode.",
-    techStack: ["Vue", "Chart.js", "Tailwind"],
-    images: ["/img/portfolio/7.jpg"],
-  },
-  {
-    title: "Code Snippet",
-    description: "A snippet sharing tool for developers.",
-    techStack: ["Next.js", "Zod", "Prisma"],
-    images: ["/img/portfolio/8.jpg"],
-  },
-  {
-    title: "BlogCraft",
-    description: "Markdown-powered blogging engine.",
-    techStack: ["React", "Next.js", "MDX"],
-    images: ["/img/portfolio/9.jpg"],
+    title: "ConnectSphere: Social Networking Platform", // New Social Media Project
+    description:
+      "A dynamic social media platform designed to connect people. Features include user profiles, a news feed for sharing posts and photos, friend connections, real-time messaging, and community group functionalities. Built for seamless interaction and engagement.",
+    techStack: [
+      // Example tech stack for a social media platform
+      "React",
+      "Next.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Socket.IO", // For real-time features
+      "Cloudinary", // For image/video hosting
+      "Tailwind CSS",
+      "JWT",
+    ],
+    images: [
+      "/img/portfolio/SocialMedia/UI-community.png", // Your specified image path
+      "/img/portfolio/SocialMedia/Schema-Diagram.png", // Your specified image path
+    ],
   },
 ];
 
@@ -79,7 +76,20 @@ const Portfolio = () => {
   );
 
   const handleNext = () => {
-    if (startIndex + ITEMS_PER_PAGE < projects.length) {
+    // Ensure we don't go past the last possible page
+    if (
+      startIndex + 1 < projects.length - ITEMS_PER_PAGE + 1 &&
+      projects.length > ITEMS_PER_PAGE
+    ) {
+      setStartIndex(startIndex + 1);
+    } else if (startIndex === 0 && projects.length <= ITEMS_PER_PAGE) {
+      // Do nothing if there are not enough projects to paginate
+    } else if (
+      projects.length > ITEMS_PER_PAGE &&
+      startIndex + ITEMS_PER_PAGE >= projects.length
+    ) {
+      // If on the last items and trying to go next, do nothing or loop (currently does nothing more)
+    } else if (projects.length > ITEMS_PER_PAGE) {
       setStartIndex(startIndex + 1);
     }
   };
@@ -113,6 +123,11 @@ const Portfolio = () => {
       Zod: "Zod",
       Prisma: "Prisma",
       MDX: "MDX",
+      "Node.js": "Node",
+      "Express.js": "Express", // Matched your new tech stack
+      "Socket.IO": "SocketIO", // Abbreviation for Socket.IO
+      Cloudinary: "Cloud", // Abbreviation for Cloudinary
+      JWT: "JWT",
     };
     return map[tech] || tech;
   };
@@ -129,7 +144,9 @@ const Portfolio = () => {
             <div className="portfolio_list gallery_zoom">
               <div className="grid-container">
                 {visibleProjects.map((project, index) => (
-                  <div className="list_inner" key={index}>
+                  <div className="list_inner" key={project.title + index}>
+                    {" "}
+                    {/* Added project.title to key for more uniqueness */}
                     <div
                       className="image"
                       onClick={() => setActiveProject(project)}
@@ -154,7 +171,9 @@ const Portfolio = () => {
                           {project.techStack
                             .slice(0, MAX_TECH_TAGS)
                             .map((tech, i) => (
-                              <li key={i} title={tech}>
+                              <li key={tech + i} title={tech}>
+                                {" "}
+                                {/* Added tech to key for more uniqueness */}
                                 {abbreviateTech(tech)}
                               </li>
                             ))}
@@ -166,37 +185,55 @@ const Portfolio = () => {
                     </div>
                     <a
                       className="kura_tm_full_link"
-                      onClick={() => setActiveProject(project)}
+                      href="#" // It's better to use href="#" for anchor tags if onClick handles navigation/action
+                      onClick={(e) => {
+                        e.preventDefault(); // Prevent default anchor behavior
+                        setActiveProject(project);
+                      }}
                     />
                   </div>
                 ))}
               </div>
 
-              {/* Navigation */}
-              <div className="kura_tm_swiper_progress fill">
-                <div className="my_navigation">
-                  <ul>
-                    <li>
-                      <a className="my_prev" onClick={handlePrev}>
-                        <img
-                          className="svg"
-                          src="img/svg/right-arrow.svg"
-                          alt="Prev"
-                        />
-                      </a>
-                    </li>
-                    <li>
-                      <a className="my_next" onClick={handleNext}>
-                        <img
-                          className="svg"
-                          src="img/svg/right-arrow.svg"
-                          alt="Next"
-                        />
-                      </a>
-                    </li>
-                  </ul>
+              {/* Navigation - Conditionally render if there are more projects than items per page */}
+              {projects.length > ITEMS_PER_PAGE && (
+                <div className="kura_tm_swiper_progress fill">
+                  <div className="my_navigation">
+                    <ul>
+                      <li>
+                        <a
+                          className={`my_prev ${
+                            startIndex === 0 ? "disabled" : ""
+                          }`}
+                          onClick={handlePrev}
+                        >
+                          <img
+                            className="svg"
+                            src="img/svg/right-arrow.svg"
+                            alt="Prev"
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          className={`my_next ${
+                            startIndex + ITEMS_PER_PAGE >= projects.length
+                              ? "disabled"
+                              : ""
+                          }`}
+                          onClick={handleNext}
+                        >
+                          <img
+                            className="svg"
+                            src="img/svg/right-arrow.svg"
+                            alt="Next"
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>
@@ -241,13 +278,22 @@ const Portfolio = () => {
 
         .kura_tm_portfolio .grid-container {
           display: grid;
-          grid-template-columns: repeat(3, 1fr);
+          grid-template-columns: repeat(
+            ${Math.min(
+              ITEMS_PER_PAGE,
+              projects.length > 0 ? projects.length : 1
+            )},
+            1fr
+          ); /* Adjust grid columns based on available projects */
           gap: 30px;
         }
 
         @media (max-width: 1024px) {
           .kura_tm_portfolio .grid-container {
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(
+              ${Math.min(2, projects.length > 0 ? projects.length : 1)},
+              1fr
+            );
           }
         }
 
@@ -409,13 +455,23 @@ const Portfolio = () => {
           color: #000;
           transition: all 0.3s ease;
         }
+        .kura_tm_portfolio
+          .kura_tm_swiper_progress
+          .my_navigation
+          ul
+          li
+          a.disabled {
+          /* Style for disabled navigation buttons */
+          color: #ccc;
+          cursor: not-allowed;
+        }
 
         .kura_tm_portfolio
           .kura_tm_swiper_progress
           .my_navigation
           ul
           li
-          a:hover {
+          a:not(.disabled):hover {
           color: #ff4522;
         }
 

@@ -15,7 +15,7 @@ const Home = () => {
     {
       id: 1,
       title: "Full Stack Development",
-      img: "https://lh7-rt.googleusercontent.com/docsz/AD_4nXfM5yio9rMMjPFgyAleQg3ALD3WJoYGji5_qUUHCseM6V6ZxHMdB1gclk-iba_uDw5C6EDBNrR9PeNLvqhbnU5jKWA4_ATfizS2Wn2X2q2xgL_H9TTx765Q8rmhSSiSU4xKSVqJ?key=8Icro23PLHSLRmHd-kIQoO0c",
+      img: "https://media.geeksforgeeks.org/wp-content/cdn-uploads/20190626123927/untitlsssssed.png",
       desc: `As a Full Stack JavaScript Developer, I create end-to-end web applications using modern technologies. 
       
       **Frontend Development:**
@@ -40,7 +40,7 @@ const Home = () => {
     {
       id: 2,
       title: "SEO & Web Performance",
-      img: "/img/service/seo.jpg",
+      img: "https://pureseo.com/wp-content/uploads/2022/05/page-experience-website-performance.jpg",
       desc: `I optimize websites for search engines and peak performance to ensure maximum visibility and user experience.
       
       **SEO Optimization:**
@@ -67,7 +67,7 @@ const Home = () => {
     {
       id: 3,
       title: "Deployment & DevOps",
-      img: "/img/service/devops.jpg",
+      img: "https://b1286009.smushcdn.com/1286009/wp-content/uploads/2023/04/shutterstock_2130412277_5c97b3cbf1157d3a48324a80d3c0301e_2000-1536x470.jpg?lossy=1&strip=1&webp=1",
       desc: `I handle the complete deployment pipeline and DevOps processes to ensure your applications run smoothly in production.
       
       **Cloud Deployment:**
@@ -98,7 +98,7 @@ const Home = () => {
     {
       id: 4,
       title: "UI/UX Design",
-      img: "/img/service/design.jpg",
+      img: "https://stackcodetraining.com/wp-content/uploads/2023/12/UI_UX-Design.png",
       desc: `I create intuitive, visually appealing user interfaces that provide exceptional user experiences across all devices.
       
       **UI Design:**

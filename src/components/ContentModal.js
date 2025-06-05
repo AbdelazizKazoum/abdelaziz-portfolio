@@ -131,20 +131,17 @@ const formatDescription = (text) => {
 export const HomeModal = ({ open, onCloseModal, img, title, desc }) => {
   useEffect(() => {
     if (open) {
-      // Lock scroll on body and html
       const originalBodyOverflow = document.body.style.overflow;
       const originalHtmlOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
 
-      // Optional: prevent touch move (mobile)
       const preventTouch = (e) => e.preventDefault();
       document.body.addEventListener("touchmove", preventTouch, {
         passive: false,
       });
 
       return () => {
-        // Restore scroll on close
         document.body.style.overflow = originalBodyOverflow;
         document.documentElement.style.overflow = originalHtmlOverflow;
         document.body.removeEventListener("touchmove", preventTouch);
@@ -245,19 +242,21 @@ export const HomeModal = ({ open, onCloseModal, img, title, desc }) => {
         }
 
         .modal-image {
-          width: 100%;
+          width: 100%; /* Container takes full available width */
           margin-bottom: 30px;
           margin-top: 20px;
           border-radius: 10px;
-          overflow: hidden;
+          overflow: hidden; /* Good if image itself has border-radius or for other styling */
           box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .modal-image img {
-          width: 100%;
-          height: 250px;
-          object-fit: cover;
-          display: block;
+          display: block; /* Removes extra space below image */
+          max-width: 100%; /* Image won't exceed container width, scales down if larger */
+          height: auto; /* Maintains aspect ratio */
+          margin-left: auto; /* Centers the image if it's narrower than the container */
+          margin-right: auto; /* Centers the image if it's narrower than the container */
+          /* Removed: width: 100%; height: 250px; object-fit: cover; */
         }
 
         .modal-title {
@@ -280,23 +279,21 @@ export const HomeModal = ({ open, onCloseModal, img, title, desc }) => {
   );
 };
 
+// The NewsModal component remains unchanged as per the request.
 export const NewsModal = ({ open, onCloseModal, img, title, date, desc }) => {
   useEffect(() => {
     if (open) {
-      // Lock scroll on body and html
       const originalBodyOverflow = document.body.style.overflow;
       const originalHtmlOverflow = document.documentElement.style.overflow;
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
 
-      // Optional: prevent touch move (mobile)
       const preventTouch = (e) => e.preventDefault();
       document.body.addEventListener("touchmove", preventTouch, {
         passive: false,
       });
 
       return () => {
-        // Restore scroll on close
         document.body.style.overflow = originalBodyOverflow;
         document.documentElement.style.overflow = originalHtmlOverflow;
         document.body.removeEventListener("touchmove", preventTouch);
