@@ -1,6 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { audioSoundAndOpen, openNav, scroll_, stickyNav } from "../utilits";
-import { FiCode } from "react-icons/fi";
+// Changed FiCode to FiTerminal, or choose another one like FiGitMerge, FiCpu etc.
+import { FiTerminal } from "react-icons/fi";
+import { FaCode } from "react-icons/fa";
 
 const Header = ({ dark }) => {
   const [isToggled, setToggled] = useState(false);
@@ -22,7 +24,8 @@ const Header = ({ dark }) => {
           <div className="topbar_inner">
             <div className="logo">
               <a href="#" className="custom-logo">
-                <FiCode className="logo-icon" />
+                {/* Changed FiCode to FiTerminal */}
+                <FaCode size={20} className="logo-icon" />
                 <span className="logo-text">Kazoum</span>
               </a>
             </div>
@@ -72,7 +75,8 @@ const Header = ({ dark }) => {
           <div className="mobile_in">
             <div className="logo">
               <a href="#" className="custom-logo">
-                <FiCode className="logo-icon" />
+                {/* Changed FiCode to FiTerminal */}
+                <FiTerminal className="logo-icon" />
                 <span className="logo-text">Kazoum</span>
               </a>
             </div>
